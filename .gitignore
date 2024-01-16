@@ -1,0 +1,8 @@
+# Directories
+/.vs
+RenMa/bin
+RenMa/obj
+
+# Files
+*.sln
+*.csproj
