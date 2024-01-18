@@ -3,42 +3,44 @@
     Code by: @Vracked (https://github.com/Vracked)
  */
 
-using System;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 
 namespace RenMa
 {
-    public enum DotnetCSType
+    public enum DotnetVBType
     {
         Console,
         ClassLib,
+        Empty,
         WinForms,
         WPF
     }
 
-    public class DotnetCS
+    public class DotnetVB
     {
-        public string? name;
-        public string? path;
-        public DotnetCSType type;
+        public string name;
+        public string path;
+        public DotnetVBType type;
 
         private Process cmd = new Process();
 
         public void Create()
         {
-            switch (type)
+            switch(type)
             {
-                case DotnetCSType.Console:
+                case DotnetVBType.Console:
                     Console();
                     break;
-                case DotnetCSType.ClassLib:
+                case DotnetVBType.ClassLib:
                     ClassLib();
                     break;
-                case DotnetCSType.WinForms:
+                case DotnetVBType.Empty:
+                    Empty();
+                    break;
+                case DotnetVBType.WinForms:
                     WinForms();
                     break;
-                case DotnetCSType.WPF:
+                case DotnetVBType.WPF:
                     WPF();
                     break;
             }
@@ -49,7 +51,7 @@ namespace RenMa
             cmd.StartInfo.UseShellExecute = true;
             cmd.StartInfo.WorkingDirectory = path;
             cmd.StartInfo.FileName = "dotnet";
-            cmd.StartInfo.Arguments = $"new console --name {name} --language C# --no-update-check --use-program-main";
+            cmd.StartInfo.Arguments = $"new console --name {name} --language VB --no-update-check";
 
             cmd.Start();
         }
@@ -59,7 +61,17 @@ namespace RenMa
             cmd.StartInfo.UseShellExecute = true;
             cmd.StartInfo.WorkingDirectory = path;
             cmd.StartInfo.FileName = "dotnet";
-            cmd.StartInfo.Arguments = $"new classlib --name {name} --language C# --no-update-check";
+            cmd.StartInfo.Arguments = $"new classlib --name {name} --language VB --no-update-check";
+
+            cmd.Start();
+        }
+
+        private void Empty()
+        {
+            cmd.StartInfo.UseShellExecute = true;
+            cmd.StartInfo.WorkingDirectory = path;
+            cmd.StartInfo.FileName = "dotnet";
+            cmd.StartInfo.Arguments = $"new empty --name {name} --language VB --no-update-check";
 
             cmd.Start();
         }
@@ -69,7 +81,7 @@ namespace RenMa
             cmd.StartInfo.UseShellExecute = true;
             cmd.StartInfo.WorkingDirectory = path;
             cmd.StartInfo.FileName = "dotnet";
-            cmd.StartInfo.Arguments = $"new winforms --name {name} --language C# --no-update-check";
+            cmd.StartInfo.Arguments = $"new winforms --name {name} --language VB --no-update-check";
 
             cmd.Start();
         }
@@ -79,7 +91,7 @@ namespace RenMa
             cmd.StartInfo.UseShellExecute = true;
             cmd.StartInfo.WorkingDirectory = path;
             cmd.StartInfo.FileName = "dotnet";
-            cmd.StartInfo.Arguments = $"new wpf --name {name} --language C# --no-update-check";
+            cmd.StartInfo.Arguments = $"new wpf --name {name} --language VB --no-update-check";
 
             cmd.Start();
         }

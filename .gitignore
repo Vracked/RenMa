@@ -2,7 +2,9 @@
 /.vs
 RenMa/bin
 RenMa/obj
+RenMa/Properties
 
 # Files
 *.sln
-*.csproj
+*.user
+*.ico
