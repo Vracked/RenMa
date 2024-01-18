@@ -18,5 +18,5 @@ Select any one of these (Enter 'quit()' to exit):
 
 You can select the one you would like by entering the number beside it (Example 1 for C++ Class)
 
-Click [here](https://github.com/Vracked/blob/main/docs/C++Class.md) to get the docs to generating a C++ Class or
-Click [here](https://github.com/Vracked/blob/main/docs/Dotnet.md) to get the docs to generating a .NET C# or VB project
+Click [here](https://github.com/Vracked/tree/main/docs/C++Class.md) to get the docs to generating a C++ Class or
+Click [here](https://github.com/Vracked/tree/main/docs/Dotnet.md) to get the docs to generating a .NET C# or VB project
